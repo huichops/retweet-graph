@@ -1,0 +1,18 @@
+{
+  "users": [
+    {"name": "jane_doe", "followers": 360},
+    {"name": "john_doe", "followers": 250},
+    {"name": "turing", "followers": 200},
+    {"name": "fulano", "followers": 100},
+    {"name": "pooh", "followers": 130}
+  ],
+
+  "follows": [
+    { "source": 1, "target": 0 },
+    { "source": 2, "target": 0 },
+    { "source": 3, "target": 2 },
+    { "source": 3, "target": 2 },
+    { "source": 4, "target": 3 },
+    { "source": 4, "target": 1 }
+  ]
+}

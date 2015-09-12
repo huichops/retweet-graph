@@ -1,0 +1,12 @@
+body {
+  background-color: black; }
+
+h1, h2, h3, h4, h5, p {
+  color: white; }
+
+#graph {
+  background-color: whitesmoke; }
+
+.link {
+  stroke: #777;
+  stroke-width: 2px; }
