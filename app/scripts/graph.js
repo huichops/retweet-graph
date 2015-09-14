@@ -27,8 +27,17 @@ var link = svg.selectAll('.link')
 
 var node = svg.selectAll('.node')
     .data(graph.users)
-    .enter().append('circle')
+    .enter().append('g')
     .attr('class', 'node');
+
+node.append('circle')
+    .attr('r', 20)
+    .style('fill', (d) =>  `rgb(${Math.floor(color(d.followers_count));}, 50, 50)`; );
+
+node.append('text')
+    .attr('dx', 10)
+    .attr('dy', '.35em')
+    .text((d) => d.name);
 
 
 
@@ -63,9 +72,6 @@ force.on('tick', function() {
         .attr('cx', function(d) { return d.x; })
         .attr('cy', function(d) { return d.y; })
         .attr('fill', function(d) { 
-          var red = Math.floor(color(d.followers));
-
-          return `rgb(${red}, 50, 50)`;
         });
 
     // We also need to update positions of the links.
@@ -81,3 +87,5 @@ force.on('tick', function() {
 });
 
 force.start();
+
+export default force;
