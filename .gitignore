@@ -9,3 +9,4 @@ Session.vim
 ### Node.js ###
 .tmp
 node_modules
+server
