@@ -3,17 +3,17 @@ import io from 'socket.io-client';
 
 var socket = io('http://localhost:8080');
 
-const width = 768,
+const width = 820,
     height = 520;
 
 var svg;
 
 var force = d3.layout.force()
     .size([width, height])
-    .charge(-2000)
-    .gravity(0.3)
-    .linkStrength(0.5)
-    .linkDistance(200);
+    .charge(-5000)
+    .gravity(0.4)
+    .linkStrength(0.1)
+    .linkDistance(250);
 
 var tooltip = d3.select('body')
     .append('div')
@@ -32,7 +32,7 @@ form.onsubmit = function(e) {
   var id = link.match(/status\/(\d+)$/, link);
   console.log('Getting graph for', id);
   if (id) socket.emit('getGraph', id[1]);
-  e.preventDefault(); 
+  e.preventDefault();
 }
 
 socket.on('graph', (graph) => {
@@ -49,13 +49,13 @@ socket.on('graph', (graph) => {
 
   var radius = d3.scale.linear()
         .domain([first.followers_count, last.followers_count])
-        .range([10, 100]);
+        .range([20, 100]);
 
   force
     .nodes(graph.nodes)
     .links(graph.links)
     .start();
-    
+
   var link = svg.selectAll('.link')
     .data(graph.links)
     .enter().append('line')
@@ -67,18 +67,28 @@ socket.on('graph', (graph) => {
     .enter().append('g')
     .attr('class', 'node');
 
-  node.append('circle')
+  node.append('clipPath')
+    .attr('id', (d) => d.screen_name)
+  .append('circle')
     .attr('r', (d) => Math.floor(radius(d.followers_count), 10) )
     .style('fill', (d) => '#' + d.fill_color);
 
+  node.append('svg:image')
+      .attr('class', 'graph-img')
+      .attr('xlink:href', (d) => d.avatar)
+      .attr('clip-path', (d) => `url(#${d.screen_name})`)
+      .attr('width', (d) => radius(d.followers_count) * 2 )
+      .attr('height', (d) => radius(d.followers_count) * 2 );
+
   force.on('tick', function() {
 
-    d3.selectAll('circle')
-      .attr('cx', (d) => d.x)
-      .attr('cy', (d) => d.y)
-      .on('mouseover', (d) => { 
+    d3.selectAll('image')
+      .attr('x', (d) => d.x - radius(d.followers_count))
+      .attr('y', (d) => d.y - radius(d.followers_count))
+      .on('mouseover', (d) => {
+        console.log('over');
         tooltip.attr('class', 'tooltip visible');
-        
+
         name.text(d.screen_name);
         description.text(d.description);
       })
@@ -87,6 +97,10 @@ socket.on('graph', (graph) => {
       })
       .on("mousemove", () => tooltip.style("top",
     (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px"));
+
+    d3.selectAll('circle')
+      .attr('cx', (d) => d.x)
+      .attr('cy', (d) => d.y)
 
 
     link.attr('x1', function(d) { return d.source.x; })

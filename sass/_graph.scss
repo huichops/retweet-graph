@@ -1,5 +1,5 @@
 #graph {
-  width: 50%;
+  width: 70%;
   box-sizing: border-box;
   margin: auto;
   svg {
@@ -25,13 +25,13 @@
 .tooltip {
   position: absolute;
   z-index: 10;
-  transition: opacity 0.3s ease;
   background-color: $primary;
   padding: 10px;
   border-radius: 5px;
   box-shadow: -2px -3px 5px $shadow-color;
   background-color: $tooltip-background;
   max-width: 400px;
+  transition: opacity 0.3s ease;
 }
 
 .tooltip-username {

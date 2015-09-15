@@ -71,11 +71,11 @@ div {
     color: #333; }
 
 .visible {
-  display: none;
+  visibility: visible;
   opacity: 1; }
 
 .hidden {
-  display: block;
+  visibility: hidden;
   opacity: 0; }
 
 .info {
@@ -87,12 +87,17 @@ div {
   padding: 10px 20px;
   margin-left: 30px;
   margin-top: 30px; }
+  .info .example {
+    font-style: italic;
+    color: #2980b9; }
+  .info p {
+    word-wrap: break-word; }
 
 .note {
   font-weight: bold; }
 
 #graph {
-  width: 50%;
+  width: 70%;
   box-sizing: border-box;
   margin: auto; }
   #graph svg {
@@ -114,13 +119,13 @@ div {
 .tooltip {
   position: absolute;
   z-index: 10;
-  transition: opacity 0.3s ease;
   background-color: #2ecc71;
   padding: 10px;
   border-radius: 5px;
   box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.9);
-  max-width: 400px; }
+  max-width: 400px;
+  transition: opacity 0.3s ease; }
 
 .tooltip-username {
   color: #333; }
