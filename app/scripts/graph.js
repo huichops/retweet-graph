@@ -25,19 +25,6 @@ var link = svg.selectAll('.link')
     .attr('class', 'link');
 
 
-var node = svg.selectAll('.node')
-    .data(graph.users)
-    .enter().append('g')
-    .attr('class', 'node');
-
-node.append('circle')
-    .attr('r', 20)
-    .style('fill', (d) =>  `rgb(${Math.floor(color(d.followers_count));}, 50, 50)`; );
-
-node.append('text')
-    .attr('dx', 10)
-    .attr('dy', '.35em')
-    .text((d) => d.name);
 
 
 
@@ -68,11 +55,6 @@ force.on('tick', function() {
     // give the node a non-zero radius so that it's visible
     // in the container.
 
-    node.attr('r', width/25)
-        .attr('cx', function(d) { return d.x; })
-        .attr('cy', function(d) { return d.y; })
-        .attr('fill', function(d) { 
-        });
 
     // We also need to update positions of the links.
     // For those elements, the force layout sets the

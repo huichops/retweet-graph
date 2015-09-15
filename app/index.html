@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hello world</title>
+    <title>Retweeters Graph</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,7 +12,22 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1>Retweets</h1>
+    <div class="header">
+      <div class="header-title">
+        <h1 class="title">Retweeters Graph</h1>
+      </div>
+      <form class="link-form">
+        <input class="input-text-flat" id="twitterLink" type="text" placeholder="Paste Link Here" />
+        <button class="button-flat" type="submit">Generate!</button>
+      </div>
+    </div>
+    <div class="info">
+      <h3>About this</h3>
+      <p>Twitter's REST API doesn't provides the data of the path a retweet followed to reach each of its retweeters. So that we need to do a deep search in all the followers of the User that created the original Tweet to build this graph.</p>
+      <p class="note">
+        This can take SEVERAL minutes depending on the number of followers of eac Retweeter and how deep the following chain is.
+      </p>
+    </div>
     <div id="graph"></div>
   </body>
   <script type="text/javascript" src="scripts/app.js"></script>

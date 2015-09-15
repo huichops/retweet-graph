@@ -1,12 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 body {
-  background-color: black; }
+  background-color: #2ecc71;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  margin: 0; }
 
-h1, h2, h3, h4, h5, p {
-  color: white; }
+input,
+button {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  outline: none; }
+
+div {
+  box-sizing: border-box; }
+
+.title {
+  padding: 10px 15px;
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: whitesmoke; }
+
+.header {
+  background-color: #27ae60;
+  width: 100%;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1); }
+
+.header-title {
+  width: auto;
+  float: right;
+  line-height: 75px; }
+
+.link-form {
+  line-height: 100px;
+  margin-left: 50px; }
+
+.button-flat {
+  border: 0;
+  color: whitesmoke;
+  background-color: rgba(45, 145, 219, 0.95);
+  font-size: 1.2em;
+  padding: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+  border-top: 0px solid #2980b9;
+  border-left: 0px solid #2980b9;
+  border-bottom: 5px solid #2980b9;
+  border-right: 5px solid #2980b9; }
+  .button-flat:hover {
+    background-color: #3498db; }
+  .button-flat:active {
+    background-color: rgba(45, 145, 219, 0.95);
+    border: none;
+    border-top: 5px solid #2980b9;
+    border-left: 5px solid #2980b9;
+    border-bottom: 0px solid #2980b9;
+    border-right: 0px solid #2980b9; }
+
+.input-text-flat {
+  line-height: 30px;
+  padding: 0.5%;
+  font-size: 1.2em;
+  vertical-align: middle;
+  border: 2px solid rgba(255, 255, 255, 0);
+  color: #777;
+  min-width: 400px; }
+  .input-text-flat:focus {
+    border: 2px solid #3498db;
+    color: #333; }
+
+.visible {
+  display: none;
+  opacity: 1; }
+
+.hidden {
+  display: block;
+  opacity: 0; }
+
+.info {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  float: left;
+  width: 20%;
+  color: #333;
+  padding: 10px 20px;
+  margin-left: 30px;
+  margin-top: 30px; }
+
+.note {
+  font-weight: bold; }
 
 #graph {
-  background-color: whitesmoke; }
+  width: 50%;
+  box-sizing: border-box;
+  margin: auto; }
+  #graph svg {
+    margin: auto; }
+
+.node {
+  fill: rgba(45, 145, 219, 0.95);
+  stroke: black;
+  stroke-width: 2px; }
 
 .link {
   stroke: #777;
   stroke-width: 2px; }
+
+.graph-text {
+  fill: whitesmoke;
+  font-weight: 300; }
+
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  background-color: #2ecc71;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 400px; }
+
+.tooltip-username {
+  color: #333; }
