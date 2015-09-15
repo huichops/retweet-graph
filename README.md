@@ -1,7 +1,7 @@
 # Retweeters Graph
 Generates the propagation graph for the retweets of a tweet by checking all the retweeter users
 
-![Retweeters Graph Screenshot](https://goo.gl/photos/XbWveAzPfV9Mp6eC8)
+![Retweeters Graph Screenshot](https://lh3.googleusercontent.com/eJ4oLTg_9tGTSo3T7Ym21JtYWLfwaTe0mtv5TqbCGABZOfRU6QwyOVdqHdHXElZJj2fv4aelPlsQtS9YwXQv1SKrfYsriP3fPPPRHk_9jw9wDTwTc8OT2BEEiaHAY-MGsb7qo2y9KSJMTVy4vZEMgM-ipwjhpadFFdgbBe2Ctk4entU_5Au1PjemoNRYG5F7DLEhZuL2HPNOouUgccBhssQH-JFiTV4GrkajSCZ9t3VgM_8zteTfz7deLuR1yODCw96jRGiE-N0HuKB0oEMg3ZdmHAmdjrGc0VXkUjLA8vj2Gq7ZpgfcisTOF0iYYJ4kopJuCX5gbARjY3CGKPEzK9D20w9IqH06N5unA-4hPaJQMH_0ZMYhVoYuJWiIZZoi8Go_x9tqm3ge7F6G8jePP-WB1TbO4tKnkrVNLZlhav26Kv0pJxCbADJrimoUDof4uXksOEy7SQcstJ7uVmbXGJ6GlWup3F3JWnTxyMJxGOD13KaEBoszYuuLXRhXVC7xYImXTEEcfxjAtKkOJ2BIvWeSRYYNmoHCZ7lVpq7V3Ts=w1342-h654-no)
 
 ## Dependencies
 #### Made with:
