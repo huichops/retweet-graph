@@ -1,6 +1,8 @@
 # Retweeters Graph
 Generates the propagation graph for the retweets of a tweet by checking all the retweeter users
 
+![Retweeters Graph Screenshot](https://goo.gl/photos/XbWveAzPfV9Mp6eC8)
+
 ## Dependencies
 #### Made with:
 - Gulp
@@ -38,6 +40,10 @@ Opposite to the Node.js nature, we need to get the followers synchronously becau
 4. Create all the obtained links, if the are still unconnected do step 3 with all the connected users to search for the remaining unconnected ones.
 5. Repeat step 4 until all the Users followers are traversed as needed
 6. If there are remaining users unconnected add them to the nodes without any links.
+
+## Improvements
+To improve the force graph creation to have their linkStrength and gravity based on its distance from the root node.
+Use the streaming API to add new nodes in real time when an user retweets the actual Tweet.
 
 ## Issues
 
