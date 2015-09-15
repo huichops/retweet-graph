@@ -31,6 +31,14 @@ Anyway, this can not give us a certain answert about from where the retweet came
 
 Opposite to the Node.js nature, we need to get the followers synchronously because we are caching the followers of each user in case they don't exist, if we find this before finishing checking all of the followers of each User we will do redundant requests to the Twitter's API, and since we have limitations we don't want that.
 
+#### Steps
+1. Get the Tweet info to get the user, is our root node
+2. Look for the retweets of the Tweet
+3. Check all the followers of the root User to see if all the Retweeters are following the root User
+4. Create all the obtained links, if the are still unconnected do step 3 with all the connected users to search for the remaining unconnected ones.
+5. Repeat step 4 until all the Users followers are traversed as needed
+6. If there are remaining users unconnected add them to the nodes without any links.
+
 ## Issues
 
 Sometimes the code stops in the middle of the request, and you have to ask for the graph generation again. If this happens while requesting all the followers of a certain User, you will have to remove all the Links from the mongoDB collection aswell.
