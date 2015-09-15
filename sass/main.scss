@@ -1,18 +1,4 @@
-$background: black;
-$text-color: white;
-
-body {
-  background-color: $background;
-}
-h1, h2, h3, h4, h5, p {
-  color: $text-color;
-}
-
-#graph {
-  background-color: whitesmoke;
-}
-
-.link {
-  stroke: #777;
-  stroke-width: 2px;
-}
+@import 'variables';
+@import 'base';
+@import 'custom';
+@import 'graph';

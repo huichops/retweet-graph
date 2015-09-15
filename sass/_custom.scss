@@ -1,0 +1,92 @@
+.title {
+  padding: 10px 15px;
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: $text-color;
+}
+
+.header {
+  background-color: $primary-dark;
+  width: 100%;
+  box-shadow: 3px 0 5px $shadow-color;
+}
+
+.header-title {
+  width: auto;
+  float: right;
+  line-height: 75px;
+}
+
+.link-form {
+  line-height: 100px;
+  margin-left: 50px;
+}
+
+.button-flat {
+  border: 0;
+  color: $text-color;
+  background-color: $secondary;
+  font-size: 1.2em;
+  padding: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+  border-top: 0px solid $secondary-dark;
+  border-left: 0px solid $secondary-dark;
+  border-bottom: 5px solid $secondary-dark;
+  border-right: 5px solid $secondary-dark;
+
+  &:hover {
+    background-color: $secondary-light;
+  }
+
+  &:active {
+    background-color: $secondary;
+    border: none;
+    border-top: 5px solid $secondary-dark;
+    border-left: 5px solid $secondary-dark;
+    border-bottom: 0px solid $secondary-dark;
+    border-right: 0px solid $secondary-dark;
+  }
+}
+
+.input-text-flat {
+  line-height: 30px; 
+  padding: 0.5%;
+  font-size: 1.2em;
+  vertical-align: middle;
+  border: 2px solid rgba(255, 255, 255, 0.0);
+  color: $form-text-color;
+  min-width: 400px;
+
+  &:focus {
+    border: 2px solid $secondary-light;
+    color: $form-text-color-focus;
+  }
+}
+
+.visible {
+  display: none;
+  opacity: 1;
+}
+
+.hidden {
+  display: block;
+  opacity: 0;
+}
+
+.info {
+  background-color: $tooltip-background;
+  border-radius: 5px;
+  float: left;
+  width: 20%;
+  color: $form-text-color-focus;
+  padding: 10px 20px;
+  margin-left: 30px;
+  margin-top: 30px;
+
+}
+
+.note {
+  font-weight: bold;
+}

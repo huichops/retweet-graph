@@ -1,0 +1,39 @@
+#graph {
+  width: 50%;
+  box-sizing: border-box;
+  margin: auto;
+  svg {
+    margin: auto;
+  }
+}
+
+.node {
+  fill: $secondary;
+  stroke: black;
+  stroke-width: 2px;
+}
+.link {
+  stroke: #777;
+  stroke-width: 2px;
+}
+
+.graph-text {
+  fill: $text-color;
+  font-weight: 300;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  background-color: $primary;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: -2px -3px 5px $shadow-color;
+  background-color: $tooltip-background;
+  max-width: 400px;
+}
+
+.tooltip-username {
+  color: $form-text-color-focus;
+}

@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+body {
+  background-color: $primary;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+input,
+button {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+div {
+  box-sizing: border-box;
+}
