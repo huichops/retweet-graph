@@ -11,7 +11,7 @@ var svg;
 var force = d3.layout.force()
     .size([width, height])
     .charge(-1000)
-    .linkDistance(120);
+    .linkDistance(80);
 
 var tooltip = d3.select('body')
     .append('div')
@@ -47,7 +47,7 @@ socket.on('graph', (graph) => {
 
   var followersRange = d3.scale.linear()
         .domain([first.followers_count, last.followers_count])
-        .range([30, 70]);
+        .range([20, 50]);
 
   force
     .nodes(graph.nodes)
@@ -67,25 +67,25 @@ socket.on('graph', (graph) => {
 
   node.append('circle')
     .attr('r', (d) => followersRange(d.followers_count))
-    .attr('fill', (d) => '#' + d.profile_background_color)
+    .attr('fill', (d) => ('#' + d.fill_color))
 
   node.append('clipPath')
     .attr('id', (d) => d.screen_name)
   .append('circle')
-    .attr('r', 30);
+    .attr('r', 15);
 
   node.append('svg:image')
       .attr('class', 'graph-img')
       .attr('xlink:href', (d) => d.avatar)
       .attr('clip-path', (d) => `url(#${d.screen_name})`)
-      .attr('width', 60)
-      .attr('height', 60);
+      .attr('width', 30)
+      .attr('height', 30);
 
   force.on('tick', function() {
 
     d3.selectAll('image')
-      .attr('x', (d) => d.x - 30)
-      .attr('y', (d) => d.y - 30)
+      .attr('x', (d) => d.x - 15)
+      .attr('y', (d) => d.y - 15)
       .on('mouseover', (d) => {
         console.log('over');
         tooltip.attr('class', 'tooltip visible');
