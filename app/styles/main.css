@@ -16,9 +16,10 @@ div {
   box-sizing: border-box; }
 
 .title {
-  padding: 10px 15px;
+  padding: 10px 0px;
   margin: 0;
   margin-bottom: 15px;
+  margin-right: 30px;
   font-weight: 700;
   color: whitesmoke; }
 
@@ -34,7 +35,7 @@ div {
 
 .link-form {
   line-height: 100px;
-  margin-left: 50px; }
+  margin-left: 30px; }
 
 .button-flat {
   border: 0;
@@ -97,11 +98,9 @@ div {
   font-weight: bold; }
 
 #graph {
-  width: 70%;
+  width: 75%;
   box-sizing: border-box;
-  margin: auto; }
-  #graph svg {
-    margin: auto; }
+  margin-left: 25%; }
 
 .node {
   fill: rgba(45, 145, 219, 0.95);

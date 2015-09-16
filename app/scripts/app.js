@@ -10,10 +10,8 @@ var svg;
 
 var force = d3.layout.force()
     .size([width, height])
-    .charge(-5000)
-    .gravity(0.4)
-    .linkStrength(0.1)
-    .linkDistance(250);
+    .charge(-1000)
+    .linkDistance(120);
 
 var tooltip = d3.select('body')
     .append('div')
@@ -39,17 +37,17 @@ socket.on('graph', (graph) => {
 
   if (svg) svg.remove();
   svg = d3.select('#graph').append('svg')
-      .attr('width', width)
+      .attr('width', d3.select('#graph').style('width'))
       .attr('height', height);
 
   console.log(graph);
-  var sortedNodes = graph.nodes.sort((a, b) => a.followers_count - b.followers_count);
+  var sortedNodes = graph.nodes.slice(0).sort((a, b) => a.followers_count - b.followers_count);
   var first = sortedNodes[0];
   var last = sortedNodes[sortedNodes.length-1];
 
-  var radius = d3.scale.linear()
+  var followersRange = d3.scale.linear()
         .domain([first.followers_count, last.followers_count])
-        .range([20, 100]);
+        .range([30, 70]);
 
   force
     .nodes(graph.nodes)
@@ -67,24 +65,27 @@ socket.on('graph', (graph) => {
     .enter().append('g')
     .attr('class', 'node');
 
+  node.append('circle')
+    .attr('r', (d) => followersRange(d.followers_count))
+    .attr('fill', (d) => '#' + d.profile_background_color)
+
   node.append('clipPath')
     .attr('id', (d) => d.screen_name)
   .append('circle')
-    .attr('r', (d) => Math.floor(radius(d.followers_count), 10) )
-    .style('fill', (d) => '#' + d.fill_color);
+    .attr('r', 30);
 
   node.append('svg:image')
       .attr('class', 'graph-img')
       .attr('xlink:href', (d) => d.avatar)
       .attr('clip-path', (d) => `url(#${d.screen_name})`)
-      .attr('width', (d) => radius(d.followers_count) * 2 )
-      .attr('height', (d) => radius(d.followers_count) * 2 );
+      .attr('width', 60)
+      .attr('height', 60);
 
   force.on('tick', function() {
 
     d3.selectAll('image')
-      .attr('x', (d) => d.x - radius(d.followers_count))
-      .attr('y', (d) => d.y - radius(d.followers_count))
+      .attr('x', (d) => d.x - 30)
+      .attr('y', (d) => d.y - 30)
       .on('mouseover', (d) => {
         console.log('over');
         tooltip.attr('class', 'tooltip visible');
